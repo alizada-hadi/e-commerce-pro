@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}
+    Profile
+{% endblock title %}
+
+{% block content %}
+    <div class="col-lg-10 m-auto">
+        <div class="card mt-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <img src="{{request.user.profile.avatar.url}}"  class="img-thumbnail" alt="">
+                    </div>
+                    <div class="col-lg-10">
+                        <h2>{{request.user.profile.first_name}} {{request.user.profile.last_name}}</h2>
+                        <h5 class="text-muted">{{request.user.email}}</h5>
+                        <table>
+                            <tr>
+                                <td>
+                                    <i class="mdi mdi-map-marker-outline mt-2" style="font-size: 30px;"></i> 
+                                </td>
+                                <td>{{request.user.profile.city}} {{request.user.profile.address}}, {{request.user.profile.postal_code}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-10 m-auto">
+        <h3 class="my-3">Update your profile</h3>
+
+        <form action="" method="POST" class="mb-5" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{u_form|crispy}}
+            {{p_form|crispy}}
+
+            <button class="btn btn-primary btn-lg my-3">Update</button>
+        </form>
+    </div>
+{% endblock content %}

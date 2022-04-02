@@ -23,10 +23,10 @@
               
             </li>
             <li class="nav-item align-middle ml-2">
-              <a href="" class="nav-link">Profile</a>
+              <a href="{% url 'users:profile' %}" class="nav-link">Profile</a>
             </li>
             <li class="nav-item align-middle ml-2">
-              <a href="" class="nav-link">Logout</a>
+              <a href="{% url 'users:logout' %}" class="nav-link">Logout</a>
             </li>
 
           {% else %}
