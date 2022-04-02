@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    {{product.name}}
+{% endblock title %}
+
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-4">
+            <img style="width: 100%;" src="{% if product.image %} {{product.image.url}} {% else %} {% static "images/no_image.jpg" %} {% endif %}" alt="">
+        </div>
+        <div class="col-lg-8">
+            <h1>{{product.category}}</h1>
+            <h2>
+                <a href="{{product.category.get_absolute_url}}">{{product.category}}</a>
+            </h2>
+
+            <p>${{product.price}}</p>
+
+            {{product.description}}
+        </div>
+    </div>
+{% endblock content %}
