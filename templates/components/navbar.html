@@ -7,15 +7,45 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        </ul>
+        <ul class="navbar-nav mr-auto">
+          {% if request.user.is_authenticated %}
+            <li class="nav-item align-middle mx-3 mt-1">
+              {% with total_items=cart|length %}
+                <a href="{% url 'cart:cart_detail' %}" type="button" class="btn btn-outline-secondary btn-sm position-relative">
+                <i class="mdi mdi-cart-plus"></i>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                  {{total_items}}
+                </span>
+              </a>
+              {% endwith %}
+              
+            </li>
+            <li class="nav-item align-middle ml-2">
+              <a href="" class="nav-link">Profile</a>
+            </li>
+            <li class="nav-item align-middle ml-2">
+              <a href="" class="nav-link">Logout</a>
+            </li>
+
+          {% else %}
+          <li class="nav-item mx-1">
+            <a href="{% url 'users:register' %}" class="nav-link">
+              <i class="mdi mdi-account-plus-outline" style="font-size: 30px"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'users:login' %}" class="nav-link">
+              <i class="mdi mdi-login-variant text-primary" style="font-size: 30px"></i>
+            </a>
+          </li>
+
+          {% endif %}
         </ul>
       </div>
     </div>
 </nav>
 
 
-<div class="col">
-    <p class="alert alert-secondary">
-        Your cart is empty
-    </p>
-</div>
 
