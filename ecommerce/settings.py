@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # 3rd party apps
+    "crispy_forms",
+    "widget_tweaks",
     
     # custom apps
     "shop.apps.ShopConfig",
@@ -144,3 +146,6 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = "/images/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "static/images")
+
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
