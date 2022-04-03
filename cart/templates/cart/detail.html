@@ -67,6 +67,6 @@
 
     <div class="">
         <a href="{% url 'shop:product_list' %}" style="float: right;" class="btn btn-info" >Continue Shopping</a>
-        <a href="#" style="float: right;" class="btn btn-primary mx-2" >Checkout</a>
+        <a href="{% url 'order:order_create' %}" style="float: right;" class="btn btn-primary mx-2" >Checkout</a>
     </div>
 {% endblock content %}
